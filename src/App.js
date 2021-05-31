@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 
 import Header from './components/Header'
+import Footer from './components/Footer'
 import Tasks from './components/Tasks'
 import AddTask from './components/AddTask'
 
@@ -23,6 +24,15 @@ useEffect(() =>{
 //Fetch Tasks
 const fetchTasks = async () => {
   const res = await fetch('http://localhost:5000/tasks')
+  const data = await res.json()
+
+  // console.log(data)
+  return data
+}
+
+//Fetch Task
+const fetchTask = async (id) => {
+  const res = await fetch('http://localhost:5000/tasks/' + id)
   const data = await res.json()
 
   // console.log(data)
@@ -55,9 +65,22 @@ const addTask = async (task) => {
     res.status === 200 ? setTasks(tasks.filter((task) => task.id !== id)) : alert('Error Deleting This Task')
   }
 
-  const toggleReminder = (id) => {
+  const toggleReminder = async (id) => {
     // console.log(id)
-    setTasks(tasks.map((task) => task.id === id ? {...task, reminder: !task.reminder} : task))
+    const taskToToggle = await fetchTask(id)
+    const updatedTask = {...taskToToggle, reminder: !taskToToggle.reminder}
+
+    const res = await fetch('http://localhost:5000/tasks/' + id, {
+      method: 'PUT',
+      headers: {
+        'Content-type': 'application/json'
+      },
+      body: JSON.stringify(updatedTask)
+    })
+
+    const data = await res.json()
+
+    setTasks(tasks.map((task) => task.id === id ? {...task, reminder: data.reminder} : task))
   }
 
   return (
@@ -68,6 +91,7 @@ const addTask = async (task) => {
       {/* <h1>Task_Traktor</h1> */}
       {/* <h2>Hello {name}!</h2> */}
       {/* <p>Hell {x ? 'YEs' : 'No'}</p> */}
+      <Footer />
     </div>
   );
 }
