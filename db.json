@@ -13,9 +13,9 @@
       "reminder": false
     },
     {
-      "text": "BirthDay Party",
-      "day": "Sunday 1300",
-      "reminder": false,
+      "text": "Fix Lawn Mower",
+      "day": "Monday ",
+      "reminder": true,
       "id": 3
     }
   ]

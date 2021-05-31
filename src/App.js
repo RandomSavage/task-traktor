@@ -1,5 +1,6 @@
 import { useState, useEffect } from 'react'
-
+import {BrowserRouter as Router, Route} from 'react-router-dom'
+import About from './components/About'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Tasks from './components/Tasks'
@@ -84,16 +85,26 @@ const addTask = async (task) => {
   }
 
   return (
-    <div className="container">
-      <Header onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask}/>
-      {showAddTask && <AddTask onAdd={addTask}/>}
-      {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/> : 'No Tasks to show'}
-      {/* <h1>Task_Traktor</h1> */}
-      {/* <h2>Hello {name}!</h2> */}
-      {/* <p>Hell {x ? 'YEs' : 'No'}</p> */}
-      <Footer />
-    </div>
+    <Router>
+      <div className="container">
+        <Header onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask}/>
+        <Route path='/' exact render={ (props) => (
+          <>
+            {showAddTask && <AddTask onAdd={addTask}/>}
+            {tasks.length > 0 ? <Tasks tasks={tasks} onDelete={deleteTask} onToggle={toggleReminder}/> : 'No Tasks to show'}
+          </>
+        )}
+        />
+        <Route path='/about' component={About} />
+        <Footer />
+      </div>
+    </Router>
   );
 }
 
 export default App;
+
+
+      {/* <h1>Task_Traktor</h1> */}
+      {/* <h2>Hello {name}!</h2> */}
+      {/* <p>Hell {x ? 'YEs' : 'No'}</p> */}
