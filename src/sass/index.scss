@@ -18,6 +18,16 @@ body {
   border: 1px solid steelblue;
   padding: 30px;
   border-radius: 5px;
+  .row{
+    display: flex;
+    flex-direction: row;
+    .column{
+      background: gold;
+      &.odd{
+        background: green;
+      }
+    }
+  }
 }
 
 .header {

@@ -48,7 +48,11 @@ const Lab = () => {
       {
         mappy.map((row, index) => {
         return <div className='row' key={index}>{row.split('').map((cell, index) => {
-          return <div className='column' key={index}>x</div>
+          if(index % 2 === 0) {
+            return <div className='column' key={index}>x</div>
+          } else {
+            return <div className='column odd' key={index}>x</div>
+          }
         })}</div>
       })
       }
