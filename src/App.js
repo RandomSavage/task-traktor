@@ -1,6 +1,7 @@
 import { useState, useEffect } from 'react'
 import {BrowserRouter as Router, Route} from 'react-router-dom'
 import About from './components/About'
+import Lab from './components/Lab'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Tasks from './components/Tasks'
@@ -96,6 +97,7 @@ const addTask = async (task) => {
         )}
         />
         <Route path='/about' component={About} />
+        <Route path='/lab' component={Lab} />
         <Footer />
       </div>
     </Router>
@@ -105,6 +107,4 @@ const addTask = async (task) => {
 export default App;
 
 
-      {/* <h1>Task_Traktor</h1> */}
-      {/* <h2>Hello {name}!</h2> */}
-      {/* <p>Hell {x ? 'YEs' : 'No'}</p> */}
+
