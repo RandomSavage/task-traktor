@@ -21,9 +21,12 @@ body {
 .container .row {
   display: flex;
   flex-direction: row;
+  height: 50px;
 }
 .container .row .column {
   background: gold;
+  width: 50px;
+  text-align: center;
 }
 .container .row .column.odd {
   background: green;

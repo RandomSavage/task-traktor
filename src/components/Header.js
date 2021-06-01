@@ -26,7 +26,9 @@ Header.propTypes = {
 
 const headingStyle = {
   color: 'red',
-  backgroundColor: 'black'
+  backgroundColor: 'black',
+  padding: '5px',
+  borderRadius: '5px'
 }
 
 export default Header

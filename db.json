@@ -17,6 +17,12 @@
       "day": "Monday ",
       "reminder": true,
       "id": 3
+    },
+    {
+      "text": "Find Switch Charger",
+      "day": "Now",
+      "reminder": true,
+      "id": 4
     }
   ]
 }

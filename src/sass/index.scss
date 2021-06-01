@@ -21,8 +21,11 @@ body {
   .row{
     display: flex;
     flex-direction: row;
+    height: 50px;
     .column{
       background: gold;
+      width: 50px;
+      text-align: center;
       &.odd{
         background: green;
       }
