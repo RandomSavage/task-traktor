@@ -1,0 +1,30 @@
+
+#maze{
+width: 500px;
+max-height: 600px;
+overflow: hidden;
+}
+.row{
+  display: flex;
+  flex-direction: row;
+  width: 500px;
+  /* flex-basis: 40px; */
+  ;
+
+}
+.cell{
+  /* background: green; */
+  flex-basis: 40px;
+  height: 40px;
+  background: #fff;
+}
+.cell.wall{
+  background: black;
+}
+
+.player{
+  background: rgb(212, 176, 182);
+  flex-basis: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
